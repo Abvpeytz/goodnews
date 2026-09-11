@@ -1,17 +1,23 @@
 import Link from "next/link";
-import { Image } from "next/image";
+import Image from "next/image";
 
 export default function ArticleCard({ article }) {
   const { content } = article;
+  const filename    = content.image?.filename;
+  const src         = filename?.startsWith("//") ? `https:${filename}` : filename;
 
   return (
     <article className='rounded-lg overflow-hidden bg-background shadow-lg'>
-      {content.image?.filename && (
-        <Image
-          src={content.image.filename}
-          alt={content.image.alt ?? content.title ?? ""}
-          className='w-full aspect-video object-cover'
-        />
+      {src && (
+        <div className="relative w-full aspect-video">
+          <Image
+            src={src}
+            alt={content.image.alt ?? content.title ?? ""}
+            fill
+            sizes="(min-width: 768px) 33vw, 100vw"
+            className="object-cover"
+          />
+        </div>
       )}
 
       <div className='p-5'>

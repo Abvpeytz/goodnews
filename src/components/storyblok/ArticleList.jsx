@@ -10,7 +10,7 @@ export default async function ArticleList({ blok }) {
 
   return (
     <section>
-      <h2 className='text-2xl font-bold font-mono'>{blok.title}</h2>
+      <h2 className='text-2xl font-bold font-mono mb-2'>{blok.title}</h2>
 
       <ArticleCardList articles={articles} />
     </section>
