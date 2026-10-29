@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "src/lib/storyblok.js", "src/components/storyblok/Hero.jsx", "src/components/blog/ArticleCard.jsx", "src/components/blog/ArticleCardList.jsx", "src/app/articles/[slug]/page.jsx"  ],
+, "src/lib/storyblok.js", "src/components/storyblok/Hero.jsx", "src/components/blog/ArticleCard.jsx", "src/components/blog/ArticleCardList.jsx", "src/app/articles/[slug]/page.jsx", "src/app/[[...slug]]/page.jsx", "src/app/page.jsx"  ],
   "exclude": ["node_modules"]
 }

@@ -1,6 +1,7 @@
 import Page from "@/src/components/storyblok/Page";
 import Hero from "@/src/components/storyblok/Hero";
 import ArticleList from "@/src/components/storyblok/ArticleList";
+import Article from "@/src/components/storyblok/Article";
 
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
 
@@ -11,8 +12,10 @@ export const getStoryblokApi = storyblokInit({
     page: Page,
     hero: Hero,
     article_list: ArticleList,
+    article: Article,
   },
   apiOptions: {
     region: "eu",
   },
+  enableFallbackComponent: true,
 });

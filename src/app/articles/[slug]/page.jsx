@@ -1,17 +1,16 @@
-import {
-  storyblokEditable,
-  StoryblokServerRichText,
-} from "@storyblok/react/rsc";
+import { getStoryblokApi } from "@/src/lib/storyblok";
+import { StoryblokStory } from "@storyblok/react/rsc";
 
-const Article = ({ blok }) => {
+export default async function ArticlePage({ params }) {
+  const { slug } = await params;
+  const storyblokApi = getStoryblokApi();
+  const { data } = await storyblokApi.get(`cdn/stories/articles/${slug}`, {
+    version: "published",
+  });
+
   return (
-    <div className='article' {...storyblokEditable(blok)}>
-      <h1>{blok.title}</h1>
-      <p>
-        <StoryblokServerRichText doc={blok.content} />
-      </p>
+    <div className='container mx-auto p-4'>
+      <StoryblokStory story={data.story} />
     </div>
   );
-};
-
-export default Article;
+}

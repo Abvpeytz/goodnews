@@ -1,4 +1,5 @@
 import { getStoryblokApi } from "@/src/lib/storyblok";
+import { storyblokEditable } from "@storyblok/react/rsc";
 import ArticleCardList from "@/src/components/blog/ArticleCardList";
 
 export default async function ArticleList({ blok }) {
@@ -9,7 +10,7 @@ export default async function ArticleList({ blok }) {
   });
 
   return (
-    <section>
+    <section {...storyblokEditable(blok)}>
       <h2 className='text-2xl font-bold font-mono mb-2'>{blok.title}</h2>
 
       <ArticleCardList articles={articles} />
