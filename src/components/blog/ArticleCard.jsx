@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function ArticleCard({ article }) {
   const { content } = article;
-  const filename    = content.image?.filename;
+  const filename    = content.featured_image?.filename;
   const src         = filename?.startsWith("//") ? `https:${filename}` : filename;
 
   return (
@@ -12,7 +12,7 @@ export default function ArticleCard({ article }) {
         <div className="relative w-full aspect-video">
           <Image
             src={src}
-            alt={content.image.alt ?? content.title ?? ""}
+            alt={content.featured_image.alt ?? content.title ?? ""}
             fill
             sizes="(min-width: 768px) 33vw, 100vw"
             className="object-cover"

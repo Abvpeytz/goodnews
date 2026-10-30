@@ -1,0 +1,26 @@
+diff --git a/dist/esm/server/api-utils/index.js b/dist/esm/server/api-utils/index.js
+index cbac08a9a0b268c70e71c696fc44284b73176e11..a38bd1ee475cc845660ea2c8a171618ac7a811b9 100644
+--- a/dist/esm/server/api-utils/index.js
++++ b/dist/esm/server/api-utils/index.js
+@@ -54,7 +54,7 @@ export function checkIsOnDemandRevalidate(rawHeaders, previewProps) {
+     const headers = rawHeaders;
+     const previewModeId = headers[PRERENDER_REVALIDATE_HEADER];
+     const isOnDemandRevalidate = previewModeId === previewProps.previewModeId;
+-    const revalidateOnlyGenerated = headers.hasOwnProperty(PRERENDER_REVALIDATE_ONLY_GENERATED_HEADER);
++    const revalidateOnlyGenerated = Object.prototype.hasOwnProperty.call(headers, PRERENDER_REVALIDATE_ONLY_GENERATED_HEADER);
+     return {
+         isOnDemandRevalidate,
+         revalidateOnlyGenerated
+diff --git a/dist/server/api-utils/index.js b/dist/server/api-utils/index.js
+index 93cec5b3d6194c26f7157c4fc32857f3d60e01fc..afb7f50be2d30d765e4eb380684494e11f41431a 100644
+--- a/dist/server/api-utils/index.js
++++ b/dist/server/api-utils/index.js
+@@ -111,7 +111,7 @@ function checkIsOnDemandRevalidate(rawHeaders, previewProps) {
+     const headers = rawHeaders;
+     const previewModeId = headers[_constants.PRERENDER_REVALIDATE_HEADER];
+     const isOnDemandRevalidate = previewModeId === previewProps.previewModeId;
+-    const revalidateOnlyGenerated = headers.hasOwnProperty(_constants.PRERENDER_REVALIDATE_ONLY_GENERATED_HEADER);
++    const revalidateOnlyGenerated = Object.prototype.hasOwnProperty.call(headers, _constants.PRERENDER_REVALIDATE_ONLY_GENERATED_HEADER);
+     return {
+         isOnDemandRevalidate,
+         revalidateOnlyGenerated
