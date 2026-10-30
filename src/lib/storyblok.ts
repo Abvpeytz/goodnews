@@ -8,7 +8,7 @@ import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
 const cachedFetch = (input: any, init?: any): Promise<Response> => {
   return fetch(input, {
     ...init,
-    cache: "no-store",
+    cache: process.env.NODE_ENV === "production" ? "force-cache" : "no-store",
   });
 };
 
